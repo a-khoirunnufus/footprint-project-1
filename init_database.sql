@@ -5,4 +5,7 @@ CREATE TABLE tbl_pegawai (
     password TEXT,
     email VARCHAR(50),
     nohp VARCHAR(20)
-)
+);
+
+ALTER TABLE tbl_pegawai
+ADD COLUMN is_administrator TINYINT(1) DEFAULT 0;
