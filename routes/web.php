@@ -17,9 +17,7 @@ Route::get('login', 'App\Http\Controllers\AuthController@show')->name('login')->
 Route::post('login', 'App\Http\Controllers\AuthController@authenticate');
 Route::get('logout', 'App\Http\Controllers\AuthController@logout')->name('logout')->middleware('auth:admin,employee');
 
-Route::get('employee', function() {
-    return 'Employee Page';
-})->name('employee')->middleware('auth:admin');
+Route::get('employee', 'App\Http\Controllers\EmployeeController@index')->name('employee')->middleware('auth:admin');
 
 Route::get('profile', 'App\Http\Controllers\ProfileController@index')->name('profile')->middleware('auth:admin,employee');
 

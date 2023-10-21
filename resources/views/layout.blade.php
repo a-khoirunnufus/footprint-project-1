@@ -20,17 +20,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ url('themes/css/material-dashboard.css?v=3.0.0') }}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="{{ url('vendor/css/dataTables.bootstrap5.min.css') }}" />
     @yield('styles')
 </head>
 
 <body class="bg-gray-200">
-  <div class="main-content position-relative">
+  <div class="px-5 main-content position-relative">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-sticky shadow position-sticky top-3 py-2 start-0 end-0 mx-4">
+    <nav class="navbar navbar-expand-lg blur border-radius-xl z-index-sticky shadow position-sticky start-0 end-0" style="top: 1rem">
         <div class="container-fluid ps-2 pe-0">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="#">
-                <h5 class="m-0">{{ config('app.name') }}</h5>
+                <h5 class="opacity-8 m-0">{{ config('app.name') }}</h5>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon mt-2">
@@ -57,8 +57,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-2" href="{{ route('logout') }}">
-                            <i class="fa fa-arrow-right opacity-6 text-dark me-2"></i>
                             Logout
+                            <i class="fa fa-arrow-right opacity-6 text-dark ms-2"></i>
                         </a>
                     </li>
                 </ul>
@@ -66,14 +66,19 @@
         </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid px-2" style="margin-top: 4rem">
+    <div style="margin: 3rem 0">
+        <p class="mb-4">
+            <i class="fa fa-house-user opacity-8 text-dark"></i> &nbsp; / &nbsp; @yield('title')
+        </p>
         @yield('content')
     </div>
   </div>
   <!--   Core JS Files   -->
   <script src="{{ url('themes/js/core/popper.min.js') }}"></script>
   <script src="{{ url('themes/js/core/bootstrap.min.js') }}"></script>
-  <script src="{{ url('vendor/jquery-3.7.1.js') }}"></script>
+  <script src="{{ url('vendor/js/jquery-3.7.1.js') }}"></script>
+  <script src="{{ url('vendor/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ url('vendor/js/dataTables.bootstrap5.min.js') }}"></script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

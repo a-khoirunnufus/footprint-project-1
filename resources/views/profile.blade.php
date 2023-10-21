@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="card card-body mx-auto" style="width: 350px">
+<div class="card card-body" style="width: 350px">
     <div class="row gx-4 mb-2">
         <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
