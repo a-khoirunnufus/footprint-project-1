@@ -64,101 +64,7 @@
                 <th class="text-uppercase text-secondary text-xs font-weight-bolder ps-2 text-center">Aksi</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td class="text-sm text-center">1</td>
-                <td class="text-sm">
-                    <span>John Michael</span>
-                </td>
-                <td class="text-sm">
-                    <span>john@creative-tim.com</span>
-                </td>
-                <td class="text-sm">
-                    <span>081234567890</span>
-                </td>
-                <td class="text-sm text-center">
-                    <div class="dropdown">
-                        <a href="#" role="button" class="" data-bs-toggle="dropdown">
-                            <i class="fa fa-ellipsis-v opacity-6 text-dark"></i>
-                        </a>
-                        <ul class="dropdown-menu border">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-edit opacity-6 text-dark me-2"></i> Edit
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-trash opacity-6 text-dark me-2"></i> Hapus
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-sm text-center">1</td>
-                <td class="text-sm">
-                    <span>John Michael</span>
-                </td>
-                <td class="text-sm">
-                    <span>john@creative-tim.com</span>
-                </td>
-                <td class="text-sm">
-                    <span>081234567890</span>
-                </td>
-                <td class="text-sm text-center">
-                    <div class="dropdown">
-                        <a href="#" role="button" class="" data-bs-toggle="dropdown">
-                            <i class="fa fa-ellipsis-v opacity-6 text-dark"></i>
-                        </a>
-                        <ul class="dropdown-menu border">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-edit opacity-6 text-dark me-2"></i> Edit
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-trash opacity-6 text-dark me-2"></i> Hapus
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-sm text-center">1</td>
-                <td class="text-sm">
-                    <span>John Michael</span>
-                </td>
-                <td class="text-sm">
-                    <span>john@creative-tim.com</span>
-                </td>
-                <td class="text-sm">
-                    <span>081234567890</span>
-                </td>
-                <td class="text-sm text-center">
-                    <div class="dropdown">
-                        <a href="#" role="button" class="" data-bs-toggle="dropdown">
-                            <i class="fa fa-ellipsis-v opacity-6 text-dark"></i>
-                        </a>
-                        <ul class="dropdown-menu border">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-edit opacity-6 text-dark me-2"></i> Edit
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-trash opacity-6 text-dark me-2"></i> Hapus
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
 @endsection
@@ -190,12 +96,12 @@
                                 </a>
                                 <ul class="dropdown-menu border">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="${baseUrl}/employees/${data}/edit">
                                             <i class="fa fa-edit opacity-6 text-dark me-2"></i> Edit
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" onclick="doDelete('${baseUrl}/employees/${data}/destroy')">
                                             <i class="fa fa-trash opacity-6 text-dark me-2"></i> Hapus
                                         </a>
                                     </li>

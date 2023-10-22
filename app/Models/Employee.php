@@ -28,6 +28,7 @@ class Employee extends Authenticatable
 
     protected $casts = [
         'password' => 'hashed',
+        'is_administrator' => 'boolean',
     ];
 
     public $timestamps = false;

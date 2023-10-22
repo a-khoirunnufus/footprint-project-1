@@ -19,6 +19,7 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui@5/material-ui.css" />
     <link id="pagestyle" href="{{ url('themes/css/material-dashboard.css?v=3.0.0') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url('vendor/css/dataTables.bootstrap5.min.css') }}" />
     @yield('styles')
@@ -84,6 +85,10 @@
 
         @yield('content')
     </div>
+
+    <form id="form-delete-global" action="" method="post" data-form-type="delete">
+        @csrf
+    </form>
   </div>
   <!--   Core JS Files   -->
   <script src="{{ url('themes/js/core/popper.min.js') }}"></script>
@@ -91,6 +96,7 @@
   <script src="{{ url('vendor/js/jquery-3.7.1.js') }}"></script>
   <script src="{{ url('vendor/js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ url('vendor/js/dataTables.bootstrap5.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
@@ -98,6 +104,66 @@
 
   <script>
     const baseUrl = "{{ url('/') }}";
+
+    const swalDelete = Swal.mixin({
+        title: 'Apakah anda yakin?',
+        text: "Data yang dihapus tidak dapat kembali!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Hapus',
+        cancelButtonText: 'Batal',
+        customClass: {
+            confirmButton: 'btn btn-danger',
+            cancelButton: 'ms-3 btn btn-secondary'
+        },
+        buttonsStyling: false
+    });
+
+    const swalEdit = Swal.mixin({
+        title: 'Apakah anda yakin?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Edit',
+        cancelButtonText: 'Batal',
+        customClass: {
+            confirmButton: 'btn btn-warning',
+            cancelButton: 'ms-3 btn btn-secondary'
+        },
+        buttonsStyling: false
+    });
+
+    $(function(){
+        $('form[data-form-type="edit"]').on('submit', function(e) {
+            e.preventDefault();
+            swalEdit
+                .fire()
+                .then((result) => {
+                    if(result.isConfirmed) {
+                        $(this).unbind('submit');
+                        $(this).submit();
+                    }
+                });
+        });
+
+        $('form[data-form-type="delete"]').on('submit', function(e) {
+            e.preventDefault();
+            swalDelete
+                .fire()
+                .then((result) => {
+                    if(result.isConfirmed) {
+                        $(this).unbind('submit');
+                        $(this).submit();
+                    }
+                });
+        });
+    });
+
+    function doDelete(url)
+    {
+        $('#form-delete-global').attr('action', url);
+        $('#form-delete-global').submit();
+    }
+
   </script>
   @yield('scripts')
 </body>
