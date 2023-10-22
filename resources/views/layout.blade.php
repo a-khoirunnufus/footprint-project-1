@@ -43,7 +43,7 @@
                 <ul class="navbar-nav w-100 ms-4">
                     @if(auth()->guard('admin')->check())
                         <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('employee') }}">
+                            <a class="nav-link me-2" href="{{ route('employees.index') }}">
                                 <i class="fa fa-users opacity-6 text-dark me-2"></i>
                                 Data Pegawai
                             </a>
@@ -67,9 +67,21 @@
     </nav>
     <!-- End Navbar -->
     <div style="margin: 3rem 0">
-        <p class="mb-4">
-            <i class="fa fa-house-user opacity-8 text-dark"></i> &nbsp; / &nbsp; @yield('title')
-        </p>
+
+        @if(session()->has('message'))
+            @php
+                $message = session()->get('message');
+            @endphp
+            <div class="alert alert-{{ $message['type'] }} text-white alert-dismissible fade show" role="alert">
+                <span class="alert-text">{{ $message['text'] }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="vertical-align: middle; line-height: 1rem">
+                    <i class="fa fa-close text-white"></i>
+                </button>
+            </div>
+        @endif
+
+        @include('_breadcrumb', ['breadcrumb_items' => $breadcrumb_items])
+
         @yield('content')
     </div>
   </div>
@@ -84,6 +96,9 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ url('themes/js/material-dashboard.min.js?v=3.0.0') }}"></script>
 
+  <script>
+    const baseUrl = "{{ url('/') }}";
+  </script>
   @yield('scripts')
 </body>
 

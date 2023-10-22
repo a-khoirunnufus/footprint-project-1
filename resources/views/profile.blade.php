@@ -1,4 +1,8 @@
-@extends('layout')
+@extends('layout', [
+    'breadcrumb_items' => [
+        ['text' => 'Profil', 'is_active' => true]
+    ]
+])
 
 @section('title', 'Profil Karyawan')
 
