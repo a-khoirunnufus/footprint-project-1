@@ -44,7 +44,7 @@ class EmployeeController extends Controller
             throw $th;
         }
 
-        return redirect()->route('employees.create')->with('message', [
+        return redirect()->route('employees.index')->with('message', [
             'type' => 'success',
             'text' => 'Berhasil menambahkan data pegawai baru.'
         ]);
